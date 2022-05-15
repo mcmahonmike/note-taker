@@ -1,8 +1,1 @@
-{
-    "notes": [
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
-}
+{"notes":[{"title":"new title","text":"new text","id":"0"},{"title":"new title","text":"new text","id":"1"},{"title":"new title","text":"new text","id":"2"},{"title":"new titles","text":"new text","id":"3"},{"title":"new titles","text":"new text","id":"4"}]}
