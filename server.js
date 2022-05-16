@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path')
 const express = require('express');
-const { notes } = require('./db/db.json')
 
-let newNotes = []
+
+const apiRoutes = require('./routes/apiRoutes/noteRoutes');
+const htmlRoutes = require('./routes/htmlRoutes/index');
+
 
 
 
@@ -16,34 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
-// app.get('/notes', (req, res) => {
-//     res.json(notes)
-// })
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
-app.post('/notes', (req, res) => {
-    
-    let notesObject = {
-        title: req.body.title,
-        text: req.body.text,
-        id: JSON.stringify(newNotes.length)
-    };
-    newNotes.push(notesObject)
 
-    // fs.writeFileSync(
-    //     path.join(__dirname, './db/db.json'),
-    //     JSON.stringify({ notes: newNotes })
-    // );
-    
-    res.json(req.body);
-})
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-  });
-
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/notes.html'));
-  });
 
 
 app.listen(PORT, () => {
