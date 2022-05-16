@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path')
 const express = require('express');
 
-
+//path to api routes
 const apiRoutes = require('./routes/apiRoutes/noteRoutes');
 const htmlRoutes = require('./routes/htmlRoutes/index');
 
